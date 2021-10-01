@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON File</title>
+</head>
+
+<body>
+    <div id="json">
+
+    </div>
+    <script>
+        let JsonDiv = document.getElementById("json");
+        let JSONData = '{ "data":"Click Here", "size":36, "style":"bold", "name":"text1", "hOffset":250, "vOffset":100, "alignment":"center", "Friends":[ "Ali", "Reza", "Hossein" ] }';
+
+        function isJson(str) {
+            try {
+                console.log(JSONData['data'])
+                JSONObj = JSON.parse(JSONData)
+                console.log(JSONObj['data'])
+                console.log(JSONObj.data)
+                console.log(JSONData)
+                console.log(JSONObj)
+
+                for (i in JSONObj) {
+                    JsonDiv.innerHTML += '<div style ="font-size:' + JSONObj.size + 'px;font-bold:' + JSONObj.style + '">' +
+                        i + ':' + JSONObj[i] + '</div>'
+                }
+                JSONObj.size = 15;
+                JSONStr = JSON.stringify(JSONObj);
+                console.log(JSONStr)
+            } catch (e) {
+                console.log("Your Json pars Not work")
+            }
+        }
+        isJson()
+    </script>
+</body>
+
+</html>
